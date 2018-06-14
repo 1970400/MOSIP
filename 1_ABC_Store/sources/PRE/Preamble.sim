@@ -1,0 +1,72 @@
+'' 
+'' MOSIP Project P3 - SimScript Simlation
+''
+'' Loja online ABC
+'' 
+'' 1970400 - Pedro Neves
+'' 1141074 - Sérgio Silva
+''-----------------------------------------------------------------------
+
+
+preamble
+
+normally mode is undefined
+
+'' processos
+processes include orders, generator, Update_graphs
+
+'' entidades orders
+dynamic graphic entities include orders
+
+'' recursos do modelo
+resources include purchase, warehouse
+
+    accumulate Purchase_utilization as the average of n.x.purchase
+
+    define Purchase_util as a double variable
+
+    accumulate Purchase_queue_length (0 to 10 by 1)
+        as the histogram of n.q.purchase
+
+    accumulate Warehouse_utilization as the average of n.x.warehouse
+
+    define Warehouse_util as a double variable
+
+    accumulate Warehouse_queue_length (0 to 10 by 1)
+        as the histogram of n.q.warehouse
+
+display variables include Purchase_util, Warehouse_util
+
+define Purchase_x,
+       Purchase_y,
+       Warehouse_x,
+       Warehouse_y,
+       Enter_x,
+       Queue_x,
+       Send_x,
+       No_stock_y,
+       Arrived_from_supplier_y,
+       Order_velocity,
+       Order_size,
+       Mean_interarrival_time,
+       Orders_of_stock_rate,
+       Graph_update_interval    as double variables
+
+define stream as an integer variable
+
+'' Boolean se é de stock ou fornecedor
+define Order_in_stock as an integer function
+    define .false   to mean 0 '' order from supplier
+    define .true    to mean 1 '' order from stock
+
+'' Timer
+define TIME as a double function
+    define .to.enter            to mean 1
+    define .to.exit             to mean 2
+    define .to.warehouse          to mean 3
+    define .to.purchase           to mean 4
+    define .to.goto.warehouse  to mean 5
+    define .to.goto.purchase  to mean 6
+    define .to.update.graphs    to mean 7
+
+end

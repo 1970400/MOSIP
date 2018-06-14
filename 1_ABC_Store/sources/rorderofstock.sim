@@ -1,0 +1,12 @@
+'' --- encomenda de fornecedor ou armazém
+function Order_in_stock
+
+'' estimamos que 30% das encomendas existem em armazém 
+
+if random.f(stream) > Orders_of_stock_rate
+    return with .false
+otherwise
+
+return with .true
+
+end

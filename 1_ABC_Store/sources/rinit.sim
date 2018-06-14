@@ -1,0 +1,109 @@
+routine INIT
+
+
+define offset as an integer variable
+define pt     as a 2-dim real array
+define banner as a pointer variable
+define Warehouse_banner as a pointer variable
+define Purchase_banner as a pointer variable
+
+
+let vxform.v = 1
+call setworld.r given -100, 100, -100, 100
+call setview.r given 0, 32767, 0, 32767
+
+call gcolor.r(0, 250,250,250)  '' set background to dk. grey
+
+let Purchase_x = 22.5
+let Purchase_y = 5
+let Warehouse_x = -22.5
+let Warehouse_y = -52.5
+let Enter_x = -110
+let Queue_x = 0
+let Send_x = 45
+let No_stock_y = -20
+let Arrived_from_supplier_y = -27.5
+let Order_velocity = 30
+let Order_size = 15
+let Mean_interarrival_time = 3.25
+'' ---- 30% das encomendas são stock
+let Orders_of_stock_rate = .30    
+
+let Graph_update_interval = 5
+
+let stream = 3
+
+let timescale.v = 100
+
+create each warehouse(1)
+let warehouse = 1
+let u.warehouse = 1
+
+create each purchase(1)
+let purchase = 1
+let u.purchase = 1
+let offset = 12.5
+
+'' display banners
+display banner with "banner.icn"
+display Warehouse_banner with "warehouse.icn" at (Warehouse_x, Warehouse_y-offset)
+display Purchase_banner with "purchase.icn" at (Purchase_x, Purchase_y - offset)
+
+
+reserve pt(*,*) as 2 by 4
+
+
+
+let pt(1,1) = Warehouse_x - offset
+let pt(2,1) = Warehouse_y - offset
+let pt(1,2) = Warehouse_x - offset
+let pt(2,2) = Warehouse_y + offset
+let pt(1,3) = Warehouse_x + offset
+let pt(2,3) = Warehouse_y + offset
+let pt(1,4) = Warehouse_x + offset
+let pt(2,4) = Warehouse_y - offset
+
+call mxreset.r(0)
+call open.seg.r
+call gpriority.r(segid.v, 1)
+call fillcolor.r(140)
+call textcolor.r(140)
+call textsize.r(600)
+call fillarea.r(4, pt(*,*))
+call close.seg.r
+
+
+let pt(1,1) = Purchase_x - offset
+let pt(2,1) = Purchase_y - offset
+let pt(1,2) = Purchase_x - offset
+let pt(2,2) = Purchase_y + offset
+let pt(1,3) = Purchase_x + offset
+let pt(2,3) = Purchase_y + offset
+let pt(1,4) = Purchase_x + offset
+let pt(2,4) = Purchase_y - offset
+
+call mxreset.r(0)
+call open.seg.r
+call gpriority.r(segid.v, 1)
+call fillcolor.r(135)
+call textcolor.r(135)
+call textsize.r(600)
+call fillarea.r(4, pt(*,*))
+call close.seg.r
+
+release pt(*,*)
+
+call open.seg.r
+call gpriority.r(segid.v, 1)
+call textalign.r(1, 0)
+call textcolor.r(9)
+call textsize.r(1000)
+call close.seg.r
+
+show Purchase_util with "purchase_util.grf"
+show Warehouse_util with "warehouse_util.grf"
+
+show histogram Purchase_queue_length with "p_queue.grf"
+show histogram Warehouse_queue_length with "w_queue.grf"
+
+end

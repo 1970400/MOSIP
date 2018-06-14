@@ -1,0 +1,15 @@
+process Update_graphs
+
+'LOOP'
+
+display histogram Warehouse_queue_length
+display histogram Purchase_queue_length
+
+let Warehouse_util = 100 * Warehouse_utilization
+let Purchase_util = 100 * Purchase_utilization
+
+wait time(.to.update.graphs) units
+
+go to 'LOOP'
+
+end

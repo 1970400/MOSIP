@@ -1,0 +1,23 @@
+function time(to)
+
+define to as an integer variable
+
+
+select case to
+    case .to.enter
+        return with (Warehouse_x - Enter_x) / Order_velocity
+    case .to.exit
+        return with (-Enter_x - Send_x) / Order_velocity
+    case .to.warehouse
+        return with uniform.f(1.5, 3.0, stream)
+    case .to.purchase
+        return with uniform.f(5.0, 12.5, stream)
+    case .to.goto.warehouse
+        return with (Purchase_y - Arrived_from_supplier_y) / Order_velocity
+    case .to.goto.purchase
+        return with (No_stock_y - Warehouse_y) / Order_velocity
+    case .to.update.graphs
+        return with Graph_update_interval
+endselect
+
+end

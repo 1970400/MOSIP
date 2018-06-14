@@ -1,0 +1,16 @@
+process generator
+
+
+'LOOP'
+
+create a orders
+
+show orders with "order.icn"
+
+activate the orders now
+
+wait exponential.f(Mean_interarrival_time, stream) units
+
+go to 'LOOP'
+
+end

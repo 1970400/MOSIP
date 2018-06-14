@@ -1,0 +1,18 @@
+main
+
+
+''---- since there is no quit button: show ctrl-C message on screen
+write as "***********************************",/ 
+write as "** Close window to end simulation ",/ 
+write as "***********************************",/ 
+
+
+
+call init
+
+activate a generator now
+activate a Update_graphs now
+
+start simulation
+
+end

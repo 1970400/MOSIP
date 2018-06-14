@@ -1,0 +1,69 @@
+process orders
+
+define count as an integer variable
+
+
+let location.a(orders) = location.f(Enter_x, Purchase_y)
+let velocity.a(orders) = velocity.f(Order_velocity, 0)
+wait time(.to.enter) units
+
+'LOOP'
+
+let velocity.a(orders) = 0
+
+let location.a(orders) = location.f(Queue_x,
+Purchase_y + n.q.purchase * Order_size)
+
+request 1 purchase
+
+let location.a(orders) = location.f(Purchase_x, Purchase_y)
+
+let count = 0
+for each qc.e in q.purchase do
+    let location.a(who.a(qc.e)) = location.f(Queue_x,
+    Purchase_y + count * Order_size)
+    add 1 to count
+loop
+
+wait time(.to.warehouse) units
+
+relinquish 1 purchase
+
+if Order_in_stock = .true
+    let location.a(orders) = location.f(Send_x, Purchase_y)
+    let velocity.a(orders) = velocity.f(Order_velocity, 0)
+    wait time(.to.exit) units
+    return
+otherwise
+
+let location.a(orders) = location.f(Purchase_x, No_stock_y)
+let velocity.a(orders) = velocity.f(Order_velocity, - pi.c / 2)
+wait time(.to.goto.purchase) units
+
+let velocity.a(orders) = 0
+
+let location.a(orders) = location.f(Queue_x,
+Warehouse_y - n.q.warehouse * Order_size)
+
+request 1 warehouse
+
+let location.a(orders) = location.f(Warehouse_x, Warehouse_y)
+
+let count = 0
+for each qc.e in q.warehouse do
+    let location.a(who.a(qc.e)) = location.f(Queue_x,
+    Warehouse_y - count * Order_size)
+    add 1 to count
+loop
+
+wait time(.to.purchase) units
+
+relinquish 1 warehouse
+
+let location.a(orders) = location.f(Warehouse_x, Arrived_from_supplier_y)
+let velocity.a(orders) = velocity.f(Order_velocity, pi.c / 2)
+wait time(.to.goto.warehouse) units
+
+go to 'LOOP'
+
+end
