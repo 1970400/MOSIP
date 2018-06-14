@@ -1,0 +1,2 @@
+implementation: <main> "rtime.sim" 0 0
+routine: time "rtime.sim"       1 0

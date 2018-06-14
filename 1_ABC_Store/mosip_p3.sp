@@ -1,5 +1,5 @@
 Version V1.0a
-Parameters 0 4  "mosip_p3" "" "" "mosip_p3" "mosip_p3" "" 1 1 1 0 0 0 0 1 0 0
+Parameters 0 4  "mosip_p3" "" "" "mosip_p3" "mosip_p3" "" 1 0 1 0 0 0 0 1 0 0
 ProjectType 0
 UseComaptibility  0
 CaseSensitive  0

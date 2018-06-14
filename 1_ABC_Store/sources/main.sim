@@ -2,9 +2,9 @@ main
 
 
 ''---- since there is no quit button: show ctrl-C message on screen
-write as "***********************************",/ 
-write as "** Close window to end simulation ",/ 
-write as "***********************************",/ 
+write as "**************************************",/ 
+write as "** Fechar a janela termina a execução ",/ 
+write as "**************************************",/ 
 
 
 

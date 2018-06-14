@@ -1,0 +1,8 @@
+0 0 begin module c:\users\skimi\documents\mestrado\mosip\simscript\mosip\1_abc_store\sources\pre\preamble.sim
+0 0 begin module ..\sources\rtime.sim
+0 0 begin module ..\sources\rinit.sim
+0 0 begin module ..\sources\rorders.sim
+0 0 begin module ..\sources\rorderofstock.sim
+0 0 begin module ..\sources\rupdateg.sim
+0 0 begin module ..\sources\main.sim
+0 0 begin module ..\sources\rgenerat.sim

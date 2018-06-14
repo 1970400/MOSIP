@@ -50,8 +50,9 @@ define Purchase_x,
        Order_size,
        Mean_interarrival_time,
        Orders_of_stock_rate,
-       Graph_update_interval    as double variables
+       Graph_update_interval    as double variable
 
+   
 define stream as an integer variable
 
 '' Boolean se é de stock ou fornecedor

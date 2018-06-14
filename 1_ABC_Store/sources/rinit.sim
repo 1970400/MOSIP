@@ -1,12 +1,10 @@
 routine INIT
 
-
 define offset as an integer variable
 define pt     as a 2-dim real array
 define banner as a pointer variable
 define Warehouse_banner as a pointer variable
 define Purchase_banner as a pointer variable
-
 
 let vxform.v = 1
 call setworld.r given -100, 100, -100, 100
@@ -26,6 +24,7 @@ let Arrived_from_supplier_y = -27.5
 let Order_velocity = 30
 let Order_size = 15
 let Mean_interarrival_time = 3.25
+
 '' ---- 30% das encomendas são stock
 let Orders_of_stock_rate = .30    
 
@@ -33,7 +32,8 @@ let Graph_update_interval = 5
 
 let stream = 3
 
-let timescale.v = 100
+'' velocidade de execução da simulação
+let timescale.v = 1
 
 create each warehouse(1)
 let warehouse = 1
@@ -49,10 +49,7 @@ display banner with "banner.icn"
 display Warehouse_banner with "warehouse.icn" at (Warehouse_x, Warehouse_y-offset)
 display Purchase_banner with "purchase.icn" at (Purchase_x, Purchase_y - offset)
 
-
 reserve pt(*,*) as 2 by 4
-
-
 
 let pt(1,1) = Warehouse_x - offset
 let pt(2,1) = Warehouse_y - offset
@@ -71,7 +68,6 @@ call textcolor.r(140)
 call textsize.r(600)
 call fillarea.r(4, pt(*,*))
 call close.seg.r
-
 
 let pt(1,1) = Purchase_x - offset
 let pt(2,1) = Purchase_y - offset

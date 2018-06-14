@@ -1,0 +1,2 @@
+implementation: <main> "rinit.sim" 0 0
+routine: init "rinit.sim"       1 0

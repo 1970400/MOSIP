@@ -1,0 +1,2 @@
+implementation: <main> "rorderofstock.sim" 0 0
+routine: order_in_stock "rorderofstock.sim"       2 0

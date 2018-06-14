@@ -1,0 +1,2 @@
+implementation: <main> "rgenerat.sim" 0 0
+process: generator "rgenerat.sim"       1 0

@@ -1,0 +1,24 @@
+0 0 begin module c:\users\skimi\documents\mestrado\mosip\simscript\mosip\1_abc_store\sources\pre\preamble.sim
+ line      11  PREAMBLE
+ status     1  PREAMBLE
+0 0 begin module ..\sources\rtime.sim
+ line       1  Rtime
+ status     1  Rtime
+0 0 begin module ..\sources\rinit.sim
+ line       1  Rinit
+ status     1  Rinit
+0 0 begin module ..\sources\rorders.sim
+ line       1  Rorders
+ status     1  Rorders
+0 0 begin module ..\sources\rorderofstock.sim
+ line       2  Rorder_in_stock
+ status     1  Rorder_in_stock
+0 0 begin module ..\sources\rupdateg.sim
+ line       1  Rupdate_graphs
+ status     1  Rupdate_graphs
+0 0 begin module ..\sources\main.sim
+ line       1  MAIN
+ status     1  MAIN
+0 0 begin module ..\sources\rgenerat.sim
+ line       1  Rgenerator
+ status     1  Rgenerator
